@@ -1,0 +1,38 @@
+<div class="list_banner">
+  <h1><%= @list.name %></h1>
+</div>
+
+<div class="cards">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag bookmark.movie.poster_url, class: "card-img-top", alt: "#{bookmark.movie.title} poster" %>
+
+      <div class="card-body">
+        <h5 class="card-title"><%= bookmark.movie.title %></h5>
+        <p class="card-text"><%= truncate(bookmark.movie.overview, length: 120) %></p>
+        <div class="bottom d-flex justify-content-between align-items-center">
+          <div class="comment"><i class="fa-solid fa-quote-left"></i><p><%= bookmark.comment %></p></div>
+
+          <%= link_to "Delete", list_path(@list),
+            # otherwise (not nested): bookmark_path(bookmark),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: "link-danger text-decoration-none" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to lists_path do %>
+  <i class="fa-solid fa-house"></i>
+<% end %>
+
+
+<h4>Add a movie to your list</h4>
+
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.button :submit %>
+<% end %>

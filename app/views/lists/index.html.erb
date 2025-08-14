@@ -1,0 +1,18 @@
+<h1>List of all the Lists</h1>
+
+<ul>
+  <% if @lists.any? %>
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do  %>
+        <li><%= list.name %></li>
+      <% end %>
+    <% end %>
+  <% else %>
+    <li>No lists yet</li>
+  <% end %>
+</ul>
+
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Create a movie", class: 'btn btn-primary mt-3' %>
+<% end %>

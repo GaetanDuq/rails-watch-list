@@ -1,0 +1,24 @@
+<div id="hero">
+  <div class="container">
+    <h1>Save any kind of movies</h1>
+    <h3>Your lists, your rules!</h3>
+  </div>
+
+</div>
+
+<div class="lists">
+  <h3>My Lists</h3>
+
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= list.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+<%= link_to "My lists", lists_path %>

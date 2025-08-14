@@ -1,0 +1,16 @@
+.list_banner {
+  background: url("list_banner.png") center / cover no-repeat;
+  height: 50vh;
+  object-fit: cover;
+  object-position: center;
+  display: flex;
+  align-items: center;            /* vertical */
+  justify-content: center;        /* horizontal */
+  text-align: center;
+  color: $light-gray;
+}
+
+.cards {
+  display: flex;
+  margin: 25px auto;
+}
