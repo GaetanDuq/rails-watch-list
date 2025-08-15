@@ -1,6 +1,6 @@
 <h1>List of all the Lists</h1>
 
-<ul>
+<!-- <ul>
   <% if @lists.any? %>
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do  %>
@@ -10,7 +10,18 @@
   <% else %>
     <li>No lists yet</li>
   <% end %>
-</ul>
+</ul> -->
+
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= list.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 
 <%= simple_form_for @list do |f| %>
   <%= f.input :name %>
