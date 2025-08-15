@@ -71,3 +71,5 @@ gem "sassc-rails"
 
 gem 'faker'
 gem 'ostruct'
+
+gem 'dotenv-rails', groups: [:development, :test]

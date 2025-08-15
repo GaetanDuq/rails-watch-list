@@ -14,5 +14,6 @@
 
 <%= simple_form_for @list do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Create a movie", class: 'btn btn-primary mt-3' %>
 <% end %>
